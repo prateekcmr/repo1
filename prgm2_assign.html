@@ -1,8 +1,88 @@
-<html>
-<head>
-<title>Program1</title>
-</head>
-<body>
-    H<sub>2</sub>O
-</body>
-</html>
+<html> 
+    <head> 
+        <title>Online application form</title> 
+        <style type='text/css'> 
+        #input1, #input2, #input3 
+        { 
+            font-family: Verdana; 
+            font-size: 17px; 
+        } 
+        
+        #btn1, #btn2 
+        { 
+            font-family: Verdana; 
+            font-size: 17px; 
+            color: green; 
+        } 
+        </style> 
+    </head> 
+    <body> 
+        <h2>Register here</h2> 
+        <form method='post'> 
+            <input type="text" placeholder='Name' name="person_name" maxlength="35" required id="input1" onkeypress="javascript:return allowOnlyAlphabetsAndFewSpecChars(event)" /><br><br/> 
+            <input type='email' placeholder="E-mail" name="person_email" maxlength="315" required id='input2' /><br><br/> 
+            <input type="date" title="Select your date of birth" name="person_dob" required id='input3' min="1985-01-01" /><br><br/>
+            <input type='radio' name="person_gender" value="Male" /> Male&emsp; 
+            <input type='radio' name="person_gender" value="Female" /> Female&emsp;(Select a gender)<br><br/> 
+            
+            <input type="submit" name="reg" value='Register' id='btn1' />&emsp;&emsp;             
+            <input type='reset' value='Clear' id="btn2" /> 
+        </form> 
+    </body> 
+</html> 
+
+<?php 
+if(isset($_POST["reg"])) 
+{ 
+   if(!isset($_POST["person_gender"])) 
+   { 
+      echo "<script>alert('You have to select a gender'); </script>"; 
+   } 
+
+   else 
+   { 
+      $name = $_POST["person_name"]; 
+      $email = $_POST['person_email']; 
+      $dob = $_POST['person_dob']; 
+      $jender = $_POST["person_gender"]; 
+
+      echo "<br><br><b>Name :</b> $name<br><b>E-mail :</b> $email<br><b>Date of birth :</b> $dob<br><b>Gender selected :</b> $jender"; 
+    } 
+} 
+?> 
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+
+<script> 
+    $(function()
+    { 
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1; 
+        var day = dtToday.getDate(); 
+        var year = dtToday.getFullYear(); 
+                 
+        if(month < 10) 
+          month = '0' + month.toString(); 
+                 
+        if(day < 10) 
+          day = '0' + day.toString(); 
+                 
+        var maxDate = year + '-' + month + '-' + day; 
+                 
+        $('#input3').attr('max', maxDate); 
+     }
+     ); 
+</script> 
+
+<script> 
+function allowOnlyAlphabetsAndFewSpecChars(evt) 
+{ 
+    evt = (evt) ? evt : window.event; 
+    var charCode = (evt.which) ? evt.which : evt.keyCode; 
+    
+    if ((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90) || (charCode == 32) || (charCode == 46) || (charCode == 39) ) 
+          return true; 
+    else 
+          return false; 
+} 
+</script>
