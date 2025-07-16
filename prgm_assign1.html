@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website with resume and bio-data</title>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Resume')" id="defaultOpen">Resume</button>
+  <button class="tablinks" onclick="openTab(event, 'Bio-data')">Bio-data</button>
+</div>
+
+<div id="Resume" class="tabcontent">
+  <b>First name : </b> Kaushik <br>
+  <b>Last name : </b> Singh <br>
+  <b>Phone number : </b> +91-9999998641 <br>
+  <b>E-mail : </b>kaushik2000@gmail.com<br/><br>
+
+  <h2>Summary</h2>
+  <p>I am a developer with more than 10 years of experience in Software Development. I am able to work as an individual and with a team.
+    My goal is to complete the tasks before the deadlines.
+  </p>
+
+  <h2>Work Experience</h2>
+  <table border="1">
+    <tr>
+        <th>Job title</th>
+        <th>Company's name</th>
+        <th>Company's location</th>
+        <th>Dates worked</th>
+    </tr>
+    <tr>
+        <td>Software Trainee</td>
+        <td>Dell</td>
+        <td>Koramangala</td>
+        <td>Feb 2013-Feb 2014</td>
+    </tr>
+    <tr>
+        <td>Associate Software Engineer</td>
+        <td>Mindtree</td>
+        <td>Hebbal</td>
+        <td>April 2014-May 2016</td>
+    </tr>
+    <tr>
+        <td>Junior Software Developer</td>
+        <td>Cisco</td>
+        <td>Whitefield</td>
+        <td>June 2016-July 2018</td>
+    </tr>
+    <tr>
+        <td>Senior Software Developer</td>
+        <td>Cisco</td>
+        <td>Whitefield</td>
+        <td>July 2018-present</td>
+    </tr>
+  </table><br>
+
+<h2>Education</h2>  
+<table border="1">
+    <tr>
+        <th>Degree</th>
+        <th>Name of institution and location</th>
+        <th>Dates attended</th>
+        <th>Awards won</th>
+    </tr>
+    <tr>
+        <td>B.E</td>
+        <td>RVCE in Mysuru Road, Vidyanikethan Post</td>
+        <td>June 2009 to May 2013</td>
+        <td>2nd place in College-level Swimming competition</td>
+    </tr>
+    <tr>
+        <td>2<sup>nd</sup> PUC</td>
+        <td>Vijaya College in RV Road, Basavanagudi</td>
+        <td>March 2008 to March 2009</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>10<sup>th</sup> Std</td>
+        <td>Gokul Public School in Sultanpalya</td>
+        <td>June 2006 to March 2007</td>
+        <td>3rd place in Inter-school Basketball competition</td>
+    </tr>
+  </table><br>
+
+  <h2>Skills</h2>
+  <ul>
+    <li>Cricket</li>
+    <li>Badminton</li>
+    <li>Football</li>
+    <li>Jigsaw puzzle solving</li>
+  </ul><br>
+
+  <h2>Certifications</h2>
+  <p>None</p><br>
+
+  <h2>Awards</h2>
+  <p>None</p>
+
+</div>
+
+<div id="Bio-data" class="tabcontent">
+    <img src="C:/Users/Prateek/Pictures/Saved Pictures/Rahul_Dravid.jpeg" align="right" height=100 width=100 />
+<b>Name:</b> Kaushik Singh<br>
+<b>Father's name:</b> Giridhar M<br>
+<b>Mothers's name:</b> Suma V<br>
+<b>DOB:</b> 04/04/2000<br>
+<b>Address:</b> Jayanagar 7<sup>th</sup> Block, Bengaluru<br>
+<b>Mobile no:</b> +91-9999998641<br>
+<b>Religion:</b> Hindu<br>
+<b>Nationality:</b> Indian<br>
+<b>Gender:</b> Male<br>
+<b>Qualification:</b> B.E<br>
+</div>
+
+<script>
+function openTab(evt, whichDetail) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace("active", "");
+  }
+  document.getElementById(whichDetail).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
